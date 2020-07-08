@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan&display=swap');
+
+/* overwriting the browser styles */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* My Styling */
+* {
+    box-sizing:border-box;
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+}
+
+#hero {
+    height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-image: 
+        url(./Images/ChicagoBasinTrip.jpg);
+    background-size: cover;
+    background-blend-mode: saturation;
+}
+
+h1 {
+    position: absolute;
+    top: 26px;
+    left: 16px;
+    color: white;
+}
+
+h2 {
+    size: 26px;
+}
+
+.call-to-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.call-to-action > a {
+    padding: 24px 32px;
+    background-color: hsla(214, 43%, 58%, 0.883);
+    box-shadow: 0 2px 2px hsl(214, 25%, 20%);
+    text-decoration: none;
+    color: hsl(335, 99%, 95%);;
+    font-weight: 900;
+    font-size: 24px;
+    transition: transform .2s;
+}
+
+main {
+    display: flex;
+    padding-top: 25px;
+    padding-left: 100px;
+}
+
+p {
+    width: 75%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.drivers-column {
+    
+    height: 100px;
+    justify-content: left;
+}
+
+.riders-column {
+    height: 100px;
+    justify-content: left;
+}
+
+input {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=button] {
+    width: 50%;
+}
