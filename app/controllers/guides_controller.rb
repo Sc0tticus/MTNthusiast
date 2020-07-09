@@ -3,14 +3,28 @@ class GuidesController < ApplicationController
 
   # GET /guides
   def index
-    @guides = Guide.all
+    if params[:about]
+      @guides = Guide.where(about: params[:about])
+      render json: @guides
 
-    render json: @guides
+    elsif params[:rating]
+      @guides = Guide.where(rating: params[:rating])
+      render json: @guides
+
+    elsif params[:rate]
+      @guides = Guide.where(rate: params[:rate])
+      render json: @guides
+ 
+    else
+      @guides = Guide.all 
+      render json: @guides, include: [:trips]
+    end
   end
 
   # GET /guides/1
   def show
-    render json: @guide
+    @guide = Guide.find(params[:id])
+    render json: @guide, include: [:clients, :trips]
   end
 
   # POST /guides
