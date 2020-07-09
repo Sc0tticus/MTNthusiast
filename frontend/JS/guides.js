@@ -1,8 +1,8 @@
 const searchParams = new URLSearchParams(window.location.search);
 
-const resortQuery = searchParams.get('resort');
-const dateQuery = searchParams.get('date');
-const passQuery = searchParams.get('pass');
+const yearsQuery = searchParams.get('years');
+const ratingsQuery = searchParams.get('ratings');
+const rateQuery = searchParams.get('rate');
 
 const dropdown1 = document.querySelector('#dropdown1');
 const dropdown2 = document.querySelector('#dropdown2');
@@ -10,49 +10,42 @@ const dropdown3 = document.querySelector('#dropdown3');
 
 const baseURL = 'http://localhost:3000';
 
-let driversURL = `${baseURL}/drivers`;
+let guidesURL = `${baseURL}/guides`;
 
-if (resortQuery){
-  driversURL = `${driversURL}?resort=${resortQuery}`;
+if (yearsQuery){
+  guidesURL = `${guidesURL}?years=${yearsQuery}`;
 }
-if (dateQuery){
-  driversURL = `${driversURL}?date=${dateQuery}`;
+if (ratingsQuery){
+  guidesURL = `${guidesURL}?ratings=${ratingsQuery}`;
 }
-if (passQuery){
-  driversURL = `${driversURL}?pass=${passQuery}`;
+if (rateQuery){
+  guidesURL = `${guidesURL}?rate=${rateQuery}`;
 }
 
-fetch(driversURL)
+fetch(guidesURL)
   .then(response => response.json())
-  .then(showDrivers)
+  .then(showGuides)
 
-fetch(driversURL)
+fetch(guidesURL)
   .then(response => response.json())
-  .then(showDriverOptions) 
+  .then(showGuideOptions) 
 
-  const driversList = document.getElementById('drivers-list')
+  const guidesList = document.getElementById('guides-list')
 
-  function showDrivers(drivers){
-    drivers.forEach(driver => {
+  function showGuides(guides){
+    guides.forEach(guide => {
+
       let li = document.createElement('li')
-      li.innerHTML = `<a href='driverShow.html?id=${driver.id}'>${driver.name}</a> 
-                      is going to ${driver.resort} at
-                      ${cleanUpDate(driver.time)}`
-      driversList.appendChild(li)
+      li.innerHTML = `<a href='guidesShow.html?id=${guide.id}'>${guide.name}</a>` 
+      guidesList.appendChild(li)
     })
   }
 
-  function cleanUpDate(date) {
-    date = Date(Date.parse(date))
-    date = date.split('(')
-    return date[0]
-  }
-
-  function showDriverOptions(drivers){
-    addTimeOption(dropdown2)
-    drivers.forEach(driver => {
-      addOption(driver.resort, dropdown1)
-      addOption(driver.pass, dropdown3)
+  function showGuideOptions(guides){
+    guides.forEach(guide => {
+      addOption(guide.about, dropdown1)
+      addOption(guide.rating, dropdown2)
+      addOption(guide.rate, dropdown3)
     })
   }
 
@@ -60,19 +53,7 @@ fetch(driversURL)
     let option = document.createElement('option')
     option.innerText = element
     option.value = element
-    console.log(dropdown)
     dropdown.appendChild(option)
   }
 
-  function addTimeOption(dropdown){
-    let option = document.createElement('option')
-    option.innerText = "Ascending"
-    option.value = "asc"
-    console.log(dropdown)
-    dropdown.appendChild(option)
-    option = document.createElement('option')
-    option.innerText = "Descending"
-    option.value = "desc"
-    console.log(dropdown)
-    dropdown.appendChild(option)
-  }
+  
