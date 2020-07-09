@@ -2,31 +2,48 @@
 <html lang='en'>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <link rel='stylesheet' href='CSS/scroll_styles.css' type='text/css'>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/guides.css" type="text/css">
   <title>MTNthusiast</title>
+
 </head>
-
+<h1>Select Your Guide!</h1>
 <body>
-  <section id='hero'>
-    <h1>Trips Show Page</h1>
-    <div class='call-to-action'>
-    </div>
-  </section>
 
-  <main id='main'>
+  <div class="filter-row">
 
-    <div class='drivers-column'>
-      
-   
+    <h2>Filter Guide By Experience (years)</h2>
+    <p></p>
+    <form action="http://localhost:3001/Guides.html" method="GET">
+      <select name="Years" id="dropdown1"></select>
+      <input type='submit' />
+    </form>
+    
 
-    <div class='riders-column'>
-      
-    </div>
+    <h2>Filter Guide By Rating</h2>
+    <form action="http://localhost:3001/Guides.html" method="GET">
+      <select name="Ratings" id="dropdown2"></select>
+      <input type='submit' />
+    </form>
 
-  </main>
-  <script src=''></script>
+    <h2>Filter Driver By Fee ($/hr)</h2>
+    <form action="http://localhost:3001/Guides.html" method="GET">
+      <select name="Fee" id="dropdown3"></select>
+      <input type='submit' />
+    </form>
+  </div>
+  
+
+  <div class=Guides>
+  <ul id='guides-list'></ul>
+  </div>
 </body>
-
+<script src = 'JS/guides.js'></script>
 </html>
+
+
+
+
+
